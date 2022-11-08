@@ -107,7 +107,7 @@ public class UserController {
             repository.deleteById(mail);
             return new ResponseEntity<>(HttpStatus.OK);
         }
-        catch(EmptyResultDataAccessException e) {
+        catch (EmptyResultDataAccessException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         catch (Exception e) {
