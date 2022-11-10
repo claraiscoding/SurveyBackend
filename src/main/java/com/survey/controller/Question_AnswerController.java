@@ -1,7 +1,7 @@
 package com.survey.controller;
 
-import com.survey.model.Submitted_Survey;
-import com.survey.repository.Submitted_SurveyRepository;
+import com.survey.model.Question_Answer;
+import com.survey.repository.Question_AnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -10,45 +10,43 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("survey/api")
 
-public class Submitted_SurveyController {
+public class Question_AnswerController {
 
     @Autowired
-    Submitted_SurveyRepository repository;
+    Question_AnswerRepository repository;
 
-    @GetMapping("/submitted-survey")
-    public ResponseEntity<List<Submitted_Survey>> getSubSurveys() {
+    @GetMapping("/question-answer")
+    public ResponseEntity<List<Question_Answer>> getQuestionAnswer() {
         try {
-            List<Submitted_Survey> surveys = new ArrayList<>();
+            List<Question_Answer> qnas = new ArrayList<>();
 
-            surveys.addAll(repository.findAll());
+            qnas.addAll(repository.findAll());
 
-            if (surveys.isEmpty()) {
+            if (qnas.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(surveys, HttpStatus.OK);
+            return new ResponseEntity<>(qnas, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping(
-            value = "/submitted-survey",
+            value = "/question-answer",
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
     )
-    public ResponseEntity<Submitted_Survey> createSubSurvey(@RequestBody Submitted_Survey survey) {
+    public ResponseEntity<Question_Answer> createQuestionAnswer(@RequestBody Question_Answer qna) {
         try {
-            Submitted_Survey newSubSurvey = repository.save(new Submitted_Survey(survey.getId_survey(), survey.getId_mail()));
-            return new ResponseEntity<>(newSubSurvey, HttpStatus.CREATED);
+            Question_Answer newQnA = repository.save(new Question_Answer(qna.getId_question(), qna.getId_answer()));
+            return new ResponseEntity<>(newQnA, HttpStatus.CREATED);
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
