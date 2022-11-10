@@ -1,6 +1,7 @@
 package com.survey.controller;
 
 import com.survey.model.Submitted_Answer;
+import com.survey.model.Survey_Composition;
 import com.survey.repository.Submitted_AnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,22 @@ public class Submitted_AnswerController {
             List<Submitted_Answer> submitted_answers = new ArrayList<>();
 
             submitted_answers.addAll(repository.findAll());
+
+            if (submitted_answers.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(submitted_answers, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/submitted-answer/{id_submitted_survey}")
+    public ResponseEntity<List<Submitted_Answer>> getSurveyById_submitted_survey(@PathVariable("id_submitted_survey") Long id_submitted_survey) {
+        try {
+            List<Submitted_Answer> submitted_answers = new ArrayList<>();
+
+            repository.findById_submitted_survey(id_submitted_survey).forEach(submitted_answers::add);
 
             if (submitted_answers.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
