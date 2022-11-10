@@ -46,7 +46,7 @@ public class Survey_TableController {
     )
     public ResponseEntity<Survey_Table> createSurvey(@RequestBody Survey_Table survey) {
         try {
-            Survey_Table newSurvey = repository.save(new Survey_Table(survey.getId_mail(), survey.getCategory(), survey.getName(), survey.getDescription(), survey.getPublish_date(), survey.getEnding_date()));
+            Survey_Table newSurvey = repository.save(new Survey_Table(survey.getId_mail(), survey.getId_category(), survey.getName(), survey.getDescription(), survey.getPublish_date(), survey.getEnding_date()));
             return new ResponseEntity<>(newSurvey, HttpStatus.CREATED);
         }
         catch (Exception e) {

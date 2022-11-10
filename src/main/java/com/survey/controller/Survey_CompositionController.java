@@ -36,6 +36,22 @@ public class Survey_CompositionController {
         }
     }
 
+    @GetMapping("/survey-composition/{id_survey}")
+    public ResponseEntity<List<Survey_Composition>> getSurveyById_survey(@PathVariable("id_survey") Long id_survey) {
+        try {
+            List<Survey_Composition> survey_composition = new ArrayList<>();
+
+            repository.findById_survey(id_survey).forEach(survey_composition::add);
+
+            if (survey_composition.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(survey_composition, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @PostMapping(
             value = "/survey-composition",
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},

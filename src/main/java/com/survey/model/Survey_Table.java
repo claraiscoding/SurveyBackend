@@ -8,7 +8,7 @@ import java.util.List;
 @Table(name = "survey_table")
 public class Survey_Table {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "id_mail")
@@ -38,9 +38,9 @@ public class Survey_Table {
     private User user;
 
     public Survey_Table () { }
-    public Survey_Table (String id_mail, Category category, String name, String description, String publish_date, String ending_date) {
+    public Survey_Table (String id_mail, long id_category, String name, String description, String publish_date, String ending_date) {
         this.id_mail = id_mail;
-        this.category = category;
+        this.id_category = id_category;
         this.name = name;
         this.description = description;
         this.publish_date = publish_date;
