@@ -1,8 +1,6 @@
 package com.survey.controller;
 
-import com.survey.model.Submitted_Answer;
 import com.survey.model.Survey_Composition;
-import com.survey.repository.Submitted_AnswerRepository;
 import com.survey.repository.Survey_CompositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

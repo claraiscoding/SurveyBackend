@@ -1,5 +1,6 @@
 package com.survey.controller;
 
+import com.survey.model.Survey_Composition;
 import com.survey.model.Survey_Table;
 import com.survey.model.User;
 import com.survey.repository.Survey_TableRepository;
@@ -35,6 +36,21 @@ public class Survey_TableController {
 
             return new ResponseEntity<>(surveys, HttpStatus.OK);
         } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping(
+            value = "/survey",
+            consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}
+    )
+    public ResponseEntity<Survey_Table> createSurvey(@RequestBody Survey_Table survey) {
+        try {
+            Survey_Table newSurvey = repository.save(new Survey_Table(survey.getId_mail(), survey.getCategory(), survey.getName(), survey.getDescription(), survey.getPublish_date(), survey.getEnding_date()));
+            return new ResponseEntity<>(newSurvey, HttpStatus.CREATED);
+        }
+        catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

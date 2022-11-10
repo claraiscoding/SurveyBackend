@@ -27,11 +27,8 @@ public class Question {
     @JoinColumn(name = "id_category", nullable = false, insertable = false, updatable = false)
     private Category category;
 
-    public Question() {
-
-    }
-
-    public Question(String question, long categoryId) {
+    public Question () { }
+    public Question (String question, long categoryId) {
         this.question   = question;
         this.categoryId = categoryId;
     }
