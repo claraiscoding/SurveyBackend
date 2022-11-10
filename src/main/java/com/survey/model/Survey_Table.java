@@ -1,6 +1,8 @@
 package com.survey.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "survey_table")
@@ -34,7 +36,6 @@ public class Survey_Table {
     @OneToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_mail", nullable = false, insertable = false, updatable = false)
     private User user;
-    //private boolean done = false;
 
     public Survey_Table () { }
     public Survey_Table (String id_mail, Category category, String name, String description, String publish_date, String ending_date, boolean done) {
@@ -61,8 +62,4 @@ public class Survey_Table {
     public void setEnding_date (String ending_date) { this.ending_date = ending_date; }
     public Category getCategory () { return this.category; }
     public void setCategory (Category category) { this.category = category; }
-    //public User getUser () { return this.user; }
-    //public void setUser (User user) { this.user = user; }
-    //public boolean getDone () { return this.done; }
-    //public void setDone (boolean done) { this.done = done; }
 }
