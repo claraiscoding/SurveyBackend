@@ -38,14 +38,13 @@ public class Survey_Table {
     private User user;
 
     public Survey_Table () { }
-    public Survey_Table (String id_mail, Category category, String name, String description, String publish_date, String ending_date, boolean done) {
+    public Survey_Table (String id_mail, Category category, String name, String description, String publish_date, String ending_date) {
         this.id_mail = id_mail;
         this.category = category;
         this.name = name;
         this.description = description;
         this.publish_date = publish_date;
         this.ending_date = ending_date;
-        //this.done = done;
     }
     public long getId () { return this.id; }
     public String getId_mail () { return this.id_mail; }

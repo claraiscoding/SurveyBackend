@@ -7,7 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface Survey_TableRepository extends JpaRepository<Survey_Table, String> {
+public interface Survey_TableRepository extends JpaRepository<Survey_Table, Long> {
     //Optional<Survey_Table> findById_mail(String id_mail);
+    Optional<Survey_Table> findById(long id_survey);
     Page<Survey_Table> findAll(Pageable pageable);
 }
