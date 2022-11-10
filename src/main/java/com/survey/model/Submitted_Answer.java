@@ -3,7 +3,7 @@ package com.survey.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@IdClass(UserPK.class)
+@IdClass(SubmittedAnswerPK.class)
 @Entity
 @Table(name = "submitted_answer")
 public class Submitted_Answer {
@@ -34,12 +34,12 @@ public class Submitted_Answer {
     public void setId_question_answer (long id_question_answer) { this.id_question_answer = id_question_answer; }
 }
 
-class UserPK implements Serializable {
+class SubmittedAnswerPK implements Serializable {
     private long id_submitted_survey;
     private long id_question_answer;
 
-    public UserPK () { }
-    public UserPK(long id_submitted_survey, long id_question_answer) {
+    public SubmittedAnswerPK () { }
+    public SubmittedAnswerPK(long id_submitted_survey, long id_question_answer) {
         this.id_submitted_survey = id_submitted_survey;
         this.id_question_answer = id_question_answer;
     }
