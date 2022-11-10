@@ -36,4 +36,17 @@ public class Survey_Table {
     private String ending_date;
 
     public Survey_Table () { }
+    public long getId () { return this.id; }
+    public long getId_mail () { return this.id_mail; }
+    public void setId_mail (long id_mail) { this.id_mail = id_mail; }
+    public long getId_category () { return this.id_category; }
+    public void setId_category (long id_category) { this.id_category = id_category; }
+    public String getName () { return this.name; }
+    public void setName (String name) { this.name = name; }
+    public String getDescription () { return this.description; }
+    public void setDescription (String description) { this.description = description; }
+    public String getPublish_date () { return this.publish_date; }
+    public void setPublish_date (String publish_date) { this.publish_date = publish_date; }
+    public String getEnding_date () { return this.ending_date; }
+    public void setEnding_date (String ending_date) { this.ending_date = ending_date; }
 }
