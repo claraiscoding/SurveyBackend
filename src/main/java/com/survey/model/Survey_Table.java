@@ -10,18 +10,10 @@ public class Survey_Table {
     private long id;
 
     @Column(name = "id_mail")
-    private long id_mail;
-
-    @OneToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "id_mail", nullable = false, insertable = false, updatable = false)
-    private User user;
+    private String id_mail;
 
     @Column(name = "id_category")
     private long id_category;
-
-    @OneToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "id_category", nullable = false, insertable = false, updatable = false)
-    private Category category;
 
     @Column(name = "name")
     private String name;
@@ -35,10 +27,28 @@ public class Survey_Table {
     @Column(name = "ending_date")
     private String ending_date;
 
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "id_category", nullable = false, insertable = false, updatable = false)
+    private Category category;
+
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "id_mail", nullable = false, insertable = false, updatable = false)
+    private User user;
+    //private boolean done = false;
+
     public Survey_Table () { }
+    public Survey_Table (String id_mail, Category category, String name, String description, String publish_date, String ending_date, boolean done) {
+        this.id_mail = id_mail;
+        this.category = category;
+        this.name = name;
+        this.description = description;
+        this.publish_date = publish_date;
+        this.ending_date = ending_date;
+        //this.done = done;
+    }
     public long getId () { return this.id; }
-    public long getId_mail () { return this.id_mail; }
-    public void setId_mail (long id_mail) { this.id_mail = id_mail; }
+    public String getId_mail () { return this.id_mail; }
+    public void setId_mail (String id_mail) { this.id_mail = id_mail; }
     public long getId_category () { return this.id_category; }
     public void setId_category (long id_category) { this.id_category = id_category; }
     public String getName () { return this.name; }
@@ -49,4 +59,10 @@ public class Survey_Table {
     public void setPublish_date (String publish_date) { this.publish_date = publish_date; }
     public String getEnding_date () { return this.ending_date; }
     public void setEnding_date (String ending_date) { this.ending_date = ending_date; }
+    public Category getCategory () { return this.category; }
+    public void setCategory (Category category) { this.category = category; }
+    //public User getUser () { return this.user; }
+    //public void setUser (User user) { this.user = user; }
+    //public boolean getDone () { return this.done; }
+    //public void setDone (boolean done) { this.done = done; }
 }
