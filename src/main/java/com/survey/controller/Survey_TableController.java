@@ -1,8 +1,6 @@
 package com.survey.controller;
 
-import com.survey.model.Survey_Composition;
 import com.survey.model.Survey_Table;
-import com.survey.model.User;
 import com.survey.repository.Survey_TableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
