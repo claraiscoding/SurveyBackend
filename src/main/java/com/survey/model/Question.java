@@ -33,36 +33,27 @@ public class Question {
         this.categoryId = categoryId;
     }
 
-    public long getId() {
-        return id;
+    public long getId () {
+        return this.id;
     }
-
-    public String getQuestion() {
+    public String getQuestion () {
         return this.question;
     }
-
-    public void setQuestion(String question) {
+    public void setQuestion (String question) {
         this.question = question;
     }
-
-    public long getCategoryId() {
+    public long getCategoryId () {
         return this.categoryId;
     }
-
-    public void setCategoryId(long categoryId) {
+    public void setCategoryId (long categoryId) {
         this.categoryId = categoryId;
     }
-
-    public List<Answer> getAnswers() {
-        return answers;
+    public List<Answer> getAnswers () { return this.answers; }
+    public Category getCategory () {
+        return this.category;
     }
-
-    public Category getCategory() {
-        return category;
-    }
-
     @Override
-    public String toString() {
+    public String toString () {
         return "Question [id=" + id + ", question=" + question + ", categoryId=" + categoryId + "]";
     }
 

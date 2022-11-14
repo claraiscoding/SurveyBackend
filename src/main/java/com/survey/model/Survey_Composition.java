@@ -31,6 +31,7 @@ public class Survey_Composition {
     }
     public Long getId_survey () { return this.id_survey; }
     public Long getId_question_answer () { return this.id_question_answer; }
+    public Question_Answer getQuestion_answer () { return this.question_answer; }
     public void setId_survey (Long id_survey) { this.id_survey = id_survey; }
     public void setId_question_answer (Long id_question_answer) { this.id_question_answer = id_question_answer; }
 }

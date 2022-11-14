@@ -31,6 +31,8 @@ public class Question_Answer {
     public long getId () { return this.id; }
     public long getId_question () { return this.id_question; }
     public long getId_answer () { return this.id_answer; }
+    public Question getQuestion () { return this.question; }
+    public Answer getAnswer () { return this.answer; }
     public void setId_question (long id_question) { this.id_question = id_question; }
     public void setId_answer (long id_answer) { this.id_answer = id_answer; }
 }
